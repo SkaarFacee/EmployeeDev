@@ -4,8 +4,10 @@ from EmployeeApp import views
 
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import path
 
 urlpatterns = [
+    path('', views.index, name='index'),
     url(r'^department/$', views.departmentApi),
     url(r'^department/([0-9]+)$', views.departmentApi),
 

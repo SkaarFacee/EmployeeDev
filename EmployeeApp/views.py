@@ -10,6 +10,17 @@ from django.core.files.storage import default_storage
 
 # Create your views here.
 
+from django.http import HttpResponse
+from django.template import loader
+
+
+def index(request):
+    template = loader.get_template('index.html')
+    context = {
+        'temp': 'hello',
+    }
+    return HttpResponse(template.render(context, request))
+
 
 @csrf_exempt
 def departmentApi(request, id=0):
